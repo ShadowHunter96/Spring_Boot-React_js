@@ -7,10 +7,9 @@ package com.example.demo.entity;
  */
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.annotation.Nonnull;
+import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 
 @Table(name = "person")
@@ -19,11 +18,14 @@ public class Person {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     @Column(name = "first_name")
     private String firstname;
+    @NonNull
     @Column(name = "last_name")
     private String lastname;
+    @Nonnull
     @Column(name = "birthdate")
     private LocalDate birthdate;
 
